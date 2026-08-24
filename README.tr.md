@@ -223,3 +223,11 @@ bağlı bir istemci olmadan çalışıyordur — bir tane başlat, düzelir.
 
 macOS 13 veya üzeri, herdr 0.8.0 veya üzeri ve Xcode ya da Command Line Tools
 ile gelen Swift derleyicisi (`scripts/build.sh` için).
+
+## Lisans
+
+MIT — bkz. [LICENSE](LICENSE).
+
+Lisans kaynak kodu kapsar. herdr'ın adını ve koç logosunu kapsamaz:
+`Resources/ram.svg` herdr'a aittir ve yalnızca bu eklentinin genişlettiği aracı
+tanıtmak için bulunmaktadır.

@@ -13,6 +13,21 @@ BUNDLE_ID="dev.herdr.topbar"
 VERSION="0.1.0"
 DEST="${HERDR_TOPBAR_DEST:-$HOME/Applications/$APP_NAME.app}"
 
+# This path is later handed to `rm -rf`, and it can be overridden from the
+# environment, so refuse anything that is not an app bundle. Without this a
+# stray HERDR_TOPBAR_DEST (say, $HOME) would delete the wrong tree outright.
+case "$DEST" in
+    *.app) ;;
+    *)
+        echo "Refusing to build: HERDR_TOPBAR_DEST must end in .app (got '$DEST')" >&2
+        exit 1
+        ;;
+esac
+if [ "${DEST%.app}" = "" ] || [ "$DEST" = "/.app" ]; then
+    echo "Refusing to build: HERDR_TOPBAR_DEST is not a valid destination" >&2
+    exit 1
+fi
+
 MIN_MACOS="13.0"
 ARCH="$(uname -m)"
 TARGET="${ARCH}-apple-macos${MIN_MACOS}"

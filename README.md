@@ -220,3 +220,11 @@ without an attached client — start one and it will resolve.
 
 macOS 13 or later, herdr 0.8.0 or later, and the Swift compiler that ships with
 Xcode or the Command Line Tools (for `scripts/build.sh`).
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+The licence covers the source code. It does not cover herdr's name or its ram
+logo: `Resources/ram.svg` belongs to herdr and is included only to identify the
+tool this plugin extends.
