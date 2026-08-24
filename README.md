@@ -226,5 +226,5 @@ Xcode or the Command Line Tools (for `scripts/build.sh`).
 MIT — see [LICENSE](LICENSE).
 
 The licence covers the source code. It does not cover herdr's name or its ram
-logo: `Resources/ram.svg` belongs to herdr and is included only to identify the
-tool this plugin extends.
+logo — see [NOTICE](NOTICE): `Resources/ram.svg` belongs to herdr and is
+included only to identify the tool this plugin extends.

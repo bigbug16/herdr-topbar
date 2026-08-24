@@ -19,16 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Trademark and artwork notice
-
-The MIT licence above covers the source code in this repository. It does not
-cover herdr's name or its ram logo.
-
-`Resources/ram.svg` (and `Resources/ram.pdf`, generated from it) is herdr's
-logo, retrieved from https://herdr.dev/assets/ram.svg. It is reproduced here
-solely to identify the tool this plugin extends, and remains the property of
-its owner. It is not licensed under the MIT terms above, and redistributing or
-reusing it outside that purpose may require permission from herdr.

@@ -228,6 +228,6 @@ ile gelen Swift derleyicisi (`scripts/build.sh` için).
 
 MIT — bkz. [LICENSE](LICENSE).
 
-Lisans kaynak kodu kapsar. herdr'ın adını ve koç logosunu kapsamaz:
-`Resources/ram.svg` herdr'a aittir ve yalnızca bu eklentinin genişlettiği aracı
-tanıtmak için bulunmaktadır.
+Lisans kaynak kodu kapsar. herdr'ın adını ve koç logosunu kapsamaz — bkz.
+[NOTICE](NOTICE): `Resources/ram.svg` herdr'a aittir ve yalnızca bu eklentinin
+genişlettiği aracı tanıtmak için bulunmaktadır.
