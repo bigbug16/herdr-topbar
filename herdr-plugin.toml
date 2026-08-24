@@ -1,0 +1,59 @@
+# herdr-topbar — a macOS menu bar companion for herdr.
+#
+# herdr's plugin system runs processes; it cannot draw a menu bar item itself.
+# So this plugin builds and manages a small AppKit app (HerdrBar.app) that owns
+# the icon, and feeds it herdr state through an event hook.
+#
+# On notifications: herdr already delivers its own ([ui.toast], [ui.sound]).
+# This plugin posts no notifications and changes no notification settings — the
+# `pane.agent_status_changed` hook below only drives the icon's attention flash,
+# so an agent waiting for input is noticeable from anywhere on screen.
+
+id = "herdr-topbar"
+name = "herdr-topbar"
+version = "0.1.0"
+min_herdr_version = "0.8.0"
+description = "macOS menu bar icon for herdr: jump back to your session, open a project, and see which agent is waiting for input."
+platforms = ["macos"]
+
+# Compiles the Swift app and installs it to ~/Applications/HerdrBar.app.
+# NOTE: `herdr plugin link` does not run build steps — run scripts/build.sh by
+# hand when developing locally.
+[[build]]
+command = ["bash", "scripts/build.sh"]
+
+# Bring the icon up alongside a herdr server. This does not cover the case the
+# icon exists for (herdr closed), so also run the `install-login-item` action.
+[[startup]]
+command = ["bash", "scripts/ensure-bar.sh"]
+
+# The only event hook. `pane.agent_status_changed` cannot be subscribed to
+# globally over the socket API — it requires a concrete pane_id — but herdr's
+# plugin hook allowlist accepts it, so this is the way to watch every pane.
+[[events]]
+on = "pane.agent_status_changed"
+command = ["bash", "scripts/forward-event.sh"]
+
+[[actions]]
+id = "open-picker"
+title = "Open a folder in herdr"
+description = "Show HerdrBar's folder picker and open the chosen folder as a workspace."
+command = ["bash", "scripts/action-open-picker.sh"]
+
+[[actions]]
+id = "install-finder-integration"
+title = "Install Finder integration"
+description = "Add the 'Open with herdr' Quick Action and the Open With entry for files and folders."
+command = ["bash", "scripts/install-finder.sh"]
+
+[[actions]]
+id = "install-login-item"
+title = "Start HerdrBar at login"
+description = "Install the LaunchAgent so the menu bar icon is present even when herdr is not running."
+command = ["bash", "scripts/install-login-item.sh"]
+
+[[actions]]
+id = "restart-bar"
+title = "Restart HerdrBar"
+description = "Stop and relaunch the menu bar app, picking up a fresh build."
+command = ["bash", "scripts/restart-bar.sh"]
